@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lê Tuấn Vũ | Portfolio Chi Tiết</title>
+    <title>Lê Tuấn Vũ | Full-Stack Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -18,41 +18,51 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
         
-        /* Header */
-        header { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #1e252e 0%, #0d1117 100%); text-align: center; }
-        .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; object-fit: cover; }
-        h1 { font-size: 2.5rem; color: var(--text-bright); }
-        .typing-container { font-size: 1.2rem; color: var(--accent); margin-top: 10px; font-weight: 600; }
+        header { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #1e252e 0%, #0d1117 100%); text-align: center; border-bottom: 1px solid var(--border); }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 20px rgba(88, 166, 255, 0.3); }
+        h1 { font-size: 3rem; color: var(--text-bright); margin-bottom: 5px; }
+        .typing-container { font-size: 1.4rem; color: var(--accent); font-weight: 600; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        section { margin-bottom: 60px; }
-        h2 { font-size: 1.8rem; color: var(--text-bright); margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+        section { margin-bottom: 80px; }
+        h2 { font-size: 2rem; color: var(--text-bright); margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
         h2::after { content: ""; height: 1px; background: var(--border); flex: 1; }
 
-        /* Timeline Items (Kinh nghiệm & Học vấn) */
-        .timeline-item { border-left: 2px solid var(--accent); padding-left: 20px; margin-left: 10px; position: relative; margin-bottom: 30px; }
-        .timeline-item::before { content: ""; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: absolute; left: -7px; top: 5px; }
-        .time { font-size: 0.85rem; color: var(--accent); font-weight: bold; }
-        .job-title { color: var(--text-bright); font-weight: 600; font-size: 1.1rem; }
-        .company { font-style: italic; font-size: 0.95rem; margin-bottom: 8px; }
-        ul { list-style: none; }
-        ul li { margin-bottom: 5px; font-size: 0.95rem; position: relative; padding-left: 15px; }
-        ul li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+        /* Mục tiêu nghề nghiệp */
+        .objective-box { background: var(--card-bg); border: 1px solid var(--border); padding: 30px; border-radius: 12px; border-left: 5px solid var(--accent); }
 
-        /* Skill Badges */
-        .skill-group { margin-bottom: 20px; }
-        .skill-title { font-weight: 600; margin-bottom: 10px; display: block; }
-        .badges { display: flex; flex-wrap: wrap; gap: 10px; }
-        .badge { background: var(--card-bg); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; transition: 0.3s; }
-        .badge:hover { border-color: var(--accent); color: var(--accent); }
+        /* Timeline Items */
+        .timeline-item { border-left: 2px solid var(--accent); padding-left: 25px; margin-left: 10px; position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ""; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; position: absolute; left: -8px; top: 5px; }
+        .time { font-size: 0.9rem; color: var(--accent); font-weight: bold; display: block; margin-bottom: 5px; }
+        .job-title { color: var(--text-bright); font-weight: 700; font-size: 1.2rem; margin-bottom: 5px; }
+        .company { font-style: italic; color: #8b949e; margin-bottom: 10px; display: block; }
+        
+        /* Grid Kỹ năng */
+        .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 12px; }
+        .skill-card h3 { color: var(--accent); margin-bottom: 15px; font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: rgba(88, 166, 255, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(88, 166, 255, 0.2); }
 
         /* Projects Card */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-decoration: none; color: inherit; transition: 0.3s; }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .project-card h3 { color: var(--accent); margin-bottom: 10px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 25px; }
+        .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .project-card h3 { color: var(--accent); margin-bottom: 12px; }
+        .project-card ul { list-style: none; padding-left: 0; }
+        .project-card li { margin-bottom: 8px; font-size: 0.95rem; position: relative; padding-left: 18px; }
+        .project-card li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); font-size: 0.8rem; color: #8b949e; }
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--border); color: #8b949e; font-size: 0.9rem; }
+        
+        .btn-group { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .btn-zalo { background: #0068FF; color: white; }
+        .btn-mail { background: #D14836; color: white; }
+        .btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+        @media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -65,82 +75,103 @@
 
     <div class="container">
         <section>
-            <h2><i class="fas fa-user"></i> Giới thiệu</h2>
-            <p>Tôi là sinh viên kỳ 5 chuyên ngành **Lập trình Web** tại Cao đẳng FPT Polytechnic Cơ sở Đồng Nai. Với mức điểm GPA ấn tượng **3.59/4.0**, tôi tập trung vào việc làm chủ các công nghệ Backend như PHP/Laravel và tối ưu trải nghiệm người dùng với JavaScript nâng cao.</p>
-        </section>
-
-        <section>
-            <h2><i class="fas fa-tools"></i> Kỹ năng chuyên môn</h2>
-            <div class="skill-group">
-                <span class="skill-title">Front-end:</span>
-                <div class="badges">
-                    <span class="badge">HTML5</span><span class="badge">CSS3</span><span class="badge">JavaScript (ES6+)</span><span class="badge">Responsive Design</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <span class="skill-title">Back-end & DB:</span>
-                <div class="badges">
-                    <span class="badge">PHP</span><span class="badge">Laravel</span><span class="badge">MySQL</span><span class="badge">MVC Pattern</span>
-                </div>
-            </div>
-            <div class="skill-group">
-                <span class="skill-title">Công cụ & Khác:</span>
-                <div class="badges">
-                    <span class="badge">Git/GitHub</span><span class="badge">VS Code</span><span class="badge">XAMPP</span><span class="badge">SEO Basic</span>
-                </div>
+            <h2><i class="fas fa-bullseye"></i> Mục tiêu nghề nghiệp</h2>
+            <div class="objective-box">
+                <p>Là sinh viên CNTT định hướng trở thành <b>Full-Stack Developer</b>. Tôi sở hữu nền tảng lập trình web vững chắc cùng tinh thần tự học cao, luôn khao khát đóng góp vào việc phát triển các sản phẩm web chất lượng và có giá trị thực tiễn.</p>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-code"></i> Dự án tiêu biểu</h2>
+            <h2><i class="fas fa-laptop-code"></i> Kỹ năng & Công cụ</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Front-end</h3>
+                    <div class="tags">
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript (ES6+)</span><span class="tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-server"></i> Back-end & DB</h3>
+                    <div class="tags">
+                        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">MVC Model</span><span class="tag">Laravel (Learning)</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-user-check"></i> Kỹ năng mềm</h3>
+                    <div class="tags">
+                        <span class="tag">Làm việc nhóm</span><span class="tag">Giao tiếp</span><span class="tag">Quản lý thời gian</span><span class="tag">Giải quyết vấn đề</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-project-diagram"></i> Dự án thực tế</h2>
             <div class="project-grid">
                 <div class="project-card">
                     <span class="time">07/2025 - 11/2025</span>
-                    <h3>Watch E-Commerce</h3>
-                    <p>Hệ thống TMĐT bán đồng hồ với Admin Panel quản lý danh mục, đơn hàng và người dùng.</p>
+                    <h3>WATCH E-COMMERCE (Hệ thống TMĐT Đồng hồ)</h3>
+                    <span class="company">Vị trí: Backend Developer</span>
                     <ul>
-                        <li>Phát triển logic phía Server, xử lý luồng dữ liệu chuẩn MVC.</li>
-                        <li>Triển khai (deploy) lên hosting thực tế qua FTP.</li>
+                        <li>Thiết kế hệ thống quản trị (Admin Panel) quản lý danh mục, đơn hàng.</li>
+                        <li>Xử lý logic server-side, đảm bảo luồng dữ liệu chính xác giữa DB và UI.</li>
+                        <li>Triển khai website lên môi trường hosting thực tế, cấu hình FTP.</li>
                     </ul>
+                    <div class="tags" style="margin-top:15px">
+                        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">MVC</span><span class="tag">FileZilla</span>
+                    </div>
                 </div>
                 <div class="project-card">
                     <span class="time">11/2025 - 02/2026</span>
-                    <h3>KTV Technology</h3>
-                    <p>Website giới thiệu đồ công nghệ tập trung vào UI/UX và linh hoạt trên mọi thiết bị.</p>
+                    <h3>KTV TECHNOLOGY (Website Bán Đồ Công Nghệ)</h3>
+                    <span class="company">Vị trí: Frontend Developer</span>
                     <ul>
-                        <li>Phát triển các Dynamic Components: Slide banner, bộ lọc sản phẩm.</li>
-                        <li>Tối ưu tốc độ tải trang và tính thẩm mỹ cao.</li>
+                        <li>Xây dựng UI/UX hiện đại, tối ưu hóa trải nghiệm người dùng.</li>
+                        <li>Phát triển Dynamic Components: Slide banner, bộ lọc sản phẩm, hiệu ứng hover.</li>
+                        <li>Đảm bảo Responsive Design hoạt động mượt mà trên Desktop, Tablet, Mobile.</li>
                     </ul>
+                    <div class="tags" style="margin-top:15px">
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JS</span><span class="tag">Bootstrap</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2><i class="fas fa-graduation-cap"></i> Học vấn</h2>
+            <h2><i class="fas fa-graduation-cap"></i> Học vấn & Chứng nhận</h2>
             <div class="timeline-item">
-                <span class="time">09/2024 - 09/2026</span>
+                <span class="time">09/2024 - Hiện tại (Dự kiến tốt nghiệp 09/2026)</span>
                 <div class="job-title">Lập trình Web</div>
                 <div class="company">Cao đẳng FPT Polytechnic</div>
                 <ul>
-                    <li>Sinh viên xuất sắc học kỳ 5/6.</li>
-                    <li>Điểm trung bình tích lũy: 3.59/4.0.</li>
+                    <li>Tình trạng: Sinh viên học kỳ 5/6.</li>
+                    <li>Điểm trung bình tích lũy (GPA): <b>3.59/4.0</b>.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="time">Giải thưởng</span>
+                <div class="job-title">Danh hiệu & Thành tích</div>
+                <div class="company">FPT Polytechnic</div>
+                <ul>
+                    <li>Sinh viên xuất sắc học kỳ Spring 2025.</li>
+                    <li>Top dự án ấn tượng môn PHP nâng cao.</li>
                 </ul>
             </div>
         </section>
 
-        <section style="text-align: center; background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
+        <section style="text-align: center; background: var(--card-bg); padding: 50px; border-radius: 15px; border: 1px solid var(--border);">
             <h2>Kết nối với tôi</h2>
-            <p><i class="fas fa-map-marker-alt"></i> Biên Hòa, Đồng Nai</p>
-            <p><i class="fas fa-phone"></i> 0353 424 109</p>
-            <div style="margin-top: 20px;">
-                <a href="https://zalo.me/0353424109" target="_blank" style="background:#0068FF; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; margin-right:10px;"><i class="fab fa-weixin"></i> Zalo</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vule45044@gmail.com" target="_blank" style="background:#D14836; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;"><i class="fas fa-envelope"></i> Gmail</a>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Biên Hòa, Đồng Nai, Việt Nam</p>
+            <p style="margin: 15px 0;">Sẵn sàng hợp tác và đóng góp giá trị cho các dự án công nghệ!</p>
+            <div class="btn-group">
+                <a href="https://zalo.me/0353424109" target="_blank" class="btn btn-zalo"><i class="fab fa-weixin"></i> Zalo: 0353 424 109</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vule45044@gmail.com" target="_blank" class="btn btn-mail"><i class="fas fa-envelope"></i> vule45044@gmail.com</a>
             </div>
         </section>
     </div>
 
     <footer>
-        © 2026 Lê Tuấn Vũ | Được xây dựng dựa trên thông tin CV cá nhân.
+        <p>© 2026 Lê Tuấn Vũ | Được xây dựng dựa trên thông tin CV cá nhân</p>
     </footer>
 
 </body>
