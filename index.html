@@ -15,68 +15,162 @@
             --accent: #58a6ff;
             --border: #30363d;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; }
         
-        header { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #1e252e 0%, #0d1117 100%); text-align: center; border-bottom: 1px solid var(--border); }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; object-fit: cover; }
-        h1 { font-size: 2.5rem; color: var(--text-bright); margin-bottom: 10px; }
-        .typing-container { font-size: 1.2rem; color: var(--accent); font-weight: 600; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+        }
+
+        /* Header chuyên nghiệp */
+        header { 
+            height: 60vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            background: radial-gradient(circle at center, #1e252e 0%, #0d1117 100%); 
+            text-align: center; 
+            border-bottom: 1px solid var(--border); 
+        }
+        
+        .profile-img { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            border: 4px solid var(--accent); 
+            margin-bottom: 20px; 
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.3);
+        }
+        
+        h1 { font-size: 2.8rem; color: var(--text-bright); margin-bottom: 10px; }
+        
+        .typing-container { 
+            font-size: 1.3rem; 
+            color: var(--accent); 
+            font-weight: 600; 
+            letter-spacing: 1px;
+        }
 
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        section { margin-bottom: 60px; }
-        h2 { font-size: 1.6rem; color: var(--text-bright); margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
+        
+        section { margin-bottom: 80px; }
+        
+        h2 { 
+            font-size: 1.8rem; 
+            color: var(--text-bright); 
+            margin-bottom: 30px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        
         h2::after { content: ""; height: 1px; background: var(--border); flex: 1; }
 
-        /* Mục tiêu nghề nghiệp */
-        .objective-box { background: var(--card-bg); border: 1px solid var(--border); padding: 25px; border-radius: 12px; border-left: 5px solid var(--accent); margin-bottom: 40px; }
+        /* Box nội dung có hiệu ứng Hover */
+        .objective-box, .project-card, .timeline-content, .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
 
-        /* Kỹ năng - Badge Style */
-        .skill-category { margin-bottom: 20px; }
-        .skill-category h3 { font-size: 0.9rem; margin-bottom: 12px; color: #8b949e; text-transform: uppercase; }
-        .badge-group { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
-        .badge-group img { height: 28px; border-radius: 3px; }
+        .objective-box:hover, .project-card:hover, .contact-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transform: translateY(-5px);
+        }
 
-        /* Dự án - Clickable */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .objective-box { padding: 30px; border-left: 5px solid var(--accent); }
+
+        /* Skills */
+        .skill-category { margin-bottom: 25px; }
+        .skill-category h3 { font-size: 0.9rem; margin-bottom: 15px; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; }
+        .badge-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .badge-group img { height: 28px; border-radius: 4px; }
+
+        /* Projects */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
         .project-link { text-decoration: none; color: inherit; }
-        .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 25px; transition: 0.3s; height: 100%; }
-        .project-link:hover .project-card { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
-        .project-card h3 { color: var(--accent); margin-bottom: 10px; font-size: 1.3rem; }
-        .project-card ul { list-style: none; padding-left: 0; margin: 15px 0; }
-        .project-card li { font-size: 0.9rem; margin-bottom: 6px; padding-left: 15px; position: relative; }
-        .project-card li::before { content: "•"; color: var(--accent); position: absolute; left: 0; }
+        .project-card { padding: 30px; height: 100%; }
+        .project-card h3 { color: var(--accent); margin-bottom: 12px; font-size: 1.4rem; }
+        .project-card ul { list-style: none; margin: 15px 0; }
+        .project-card li { font-size: 0.95rem; margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .project-card li::before { content: "→"; color: var(--accent); position: absolute; left: 0; }
 
-        /* Timeline - Giống ảnh yêu cầu */
-        .timeline-item { border-left: 2px solid var(--accent); padding-left: 25px; margin-left: 10px; position: relative; margin-bottom: 40px; }
-        .timeline-item::before { content: ""; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; position: absolute; left: -8px; top: 6px; box-shadow: 0 0 8px var(--accent); }
-        .time-tag { color: var(--accent); font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 5px; }
+        /* Timeline (Kinh nghiệm & Học vấn) - Giống trang mẫu */
+        .timeline-container { position: relative; padding-left: 20px; }
+        
+        .timeline-item { 
+            border-left: 2px solid var(--border); 
+            padding-left: 30px; 
+            position: relative; 
+            padding-bottom: 40px; 
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover { border-left-color: var(--accent); }
+
+        .timeline-item::before { 
+            content: ""; 
+            width: 12px; 
+            height: 12px; 
+            background: var(--bg); 
+            border: 3px solid var(--border); 
+            border-radius: 50%; 
+            position: absolute; 
+            left: -10px; 
+            top: 5px; 
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .timeline-item:hover::before { 
+            background: var(--accent); 
+            border-color: var(--accent); 
+            box-shadow: 0 0 10px var(--accent); 
+        }
+
+        .time-tag { color: var(--accent); font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 8px; }
         .title-bold { color: var(--text-bright); font-weight: 800; font-size: 1.3rem; margin-bottom: 5px; display: block; }
-        .sub-title { font-style: italic; color: #8b949e; margin-bottom: 10px; display: block; }
+        .sub-title { font-style: italic; color: #8b949e; margin-bottom: 12px; display: block; font-size: 1rem; }
         .timeline-item ul { list-style: none; }
-        .timeline-item li { margin-bottom: 5px; font-size: 0.95rem; padding-left: 15px; position: relative; }
-        .timeline-item li::before { content: "•"; color: var(--text-main); position: absolute; left: 0; }
+        .timeline-item li { margin-bottom: 8px; font-size: 0.95rem; padding-left: 20px; position: relative; }
+        .timeline-item li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: #8b949e; font-size: 0.8rem; }
+        /* Contact Section Grid */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .contact-card { padding: 25px; text-align: center; text-decoration: none; color: inherit; }
+        .contact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; display: block; }
+        .contact-card span { font-weight: 600; color: var(--text-bright); }
+
+        footer { text-align: center; padding: 50px; border-top: 1px solid var(--border); color: #8b949e; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="home">
         <img src="https://github.com/Vule4504.png" class="profile-img" alt="Lê Tuấn Vũ">
         <h1>Lê Tuấn Vũ</h1>
-        <div class="typing-container">Full-Stack Developer Trainee</div>
+        <div class="typing-container">Full-Stack Developer Trainee | Operations Manager</div>
     </header>
 
     <div class="container">
-        <section>
+        
+        <section id="about">
             <h2><i class="fas fa-bullseye"></i> Mục tiêu nghề nghiệp</h2>
             <div class="objective-box">
-                <p>Tôi là sinh viên chuyên ngành <b>Lập trình Web</b> với định hướng trở thành <b>Full-Stack Developer</b>. Tôi khao khát ứng dụng các kiến thức về PHP/Laravel và JavaScript nâng cao để tạo ra những sản phẩm web có giá trị thực tiễn cao cho người dùng.</p>
+                <p>Tôi là sinh viên chuyên ngành <b>Lập trình Web</b> với định hướng trở thành <b>Full-Stack Developer</b>. Với nền tảng vững chắc trong việc quản lý vận hành và điều phối hệ thống, tôi khao khát ứng dụng tư duy logic và kỹ năng PHP/Laravel để tạo ra những sản phẩm công nghệ có giá trị thực tiễn cao cho doanh nghiệp.</p>
             </div>
         </section>
 
-        <section>
+        <section id="skills">
             <h2><i class="fas fa-laptop-code"></i> Công nghệ & Kỹ năng</h2>
             
             <div class="skill-category">
@@ -97,83 +191,111 @@
                     <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
                 </div>
             </div>
+        </section>
 
-            <div class="skill-category">
-                <h3>Công cụ quản lý</h3>
-                <div class="badge-group">
-                    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
-                    <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white">
-                    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Kinh nghiệm làm việc</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="time-tag">07/2024 - 30/03/2026</span>
+                    <span class="title-bold">TRƯỞNG CA</span>
+                    <span class="sub-title">Công ty TNHH Tô Minh</span>
+                    <ul>
+                        <li>Kiểm soát chất lượng nguyên liệu đầu vào và sản phẩm đầu ra (QA/QC).</li>
+                        <li>Trực tiếp thực hiện các kỹ thuật pha chế chuyên sâu và vận hành quy trình.</li>
+                        <li>Đào tạo nghiệp vụ, hướng dẫn và quản lý trực tiếp đội ngũ nhân sự trong ca.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time-tag">08/02/2022 - 30/01/2024</span>
+                    <span class="title-bold">NHÀ PHÂN PHỐI KHU VỰC</span>
+                    <span class="sub-title">Cty TNHH LD PERFUME OIL</span>
+                    <ul>
+                        <li>Quản lý toàn bộ quy trình nhập hàng, lưu kho và cung ứng sản phẩm.</li>
+                        <li>Xây dựng tài liệu đào tạo và hướng dẫn quy trình bán hàng cho đối tác sỉ/lẻ.</li>
+                        <li>Triển khai các chiến lược Marketing thực tế để thúc đẩy doanh số khu vực.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="projects">
             <h2><i class="fas fa-project-diagram"></i> Dự án tiêu biểu</h2>
             <div class="project-grid">
                 <a href="http://watchshop.kesug.com" target="_blank" class="project-link">
                     <div class="project-card">
                         <h3>WATCH E-COMMERCE</h3>
-                        <p>Hệ thống TMĐT bán đồng hồ với đầy đủ chức năng quản trị (Admin Panel) và giỏ hàng.</p>
+                        <p>Hệ thống TMĐT bán đồng hồ chuyên nghiệp.</p>
                         <ul>
                             <li>Xây dựng luồng dữ liệu chuẩn mô hình MVC.</li>
-                            <li>Triển khai dự án lên hosting thực tế.</li>
+                            <li>Tích hợp trang quản trị Admin đầy đủ tính năng.</li>
                         </ul>
-                        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white">
-                        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white">
+                        <div class="badge-group">
+                            <img src="https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white">
+                            <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white">
+                        </div>
                     </div>
                 </a>
 
                 <a href="https://vule4504.github.io/duan_KTV" target="_blank" class="project-link">
                     <div class="project-card">
                         <h3>KTV TECHNOLOGY</h3>
-                        <p>Website giới thiệu đồ công nghệ, tối ưu UI/UX và tương thích hoàn toàn trên di động.</p>
+                        <p>Website giới thiệu đồ công nghệ tối ưu UI/UX.</p>
                         <ul>
-                            <li>Phát triển các thành phần tương tác động (Slide, Filter).</li>
-                            <li>Tối ưu tốc độ tải trang.</li>
+                            <li>Phát triển Slide và bộ lọc sản phẩm linh hoạt.</li>
+                            <li>Tương thích hoàn toàn (Responsive) mọi thiết bị.</li>
                         </ul>
-                        <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white">
-                        <img src="https://img.shields.io/badge/JS-F7DF1E?style=flat&logo=javascript&logoColor=black">
+                        <div class="badge-group">
+                            <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white">
+                            <img src="https://img.shields.io/badge/JS-F7DF1E?style=flat&logo=javascript&logoColor=black">
+                        </div>
                     </div>
                 </a>
             </div>
         </section>
 
-        <section>
+        <section id="education">
             <h2><i class="fas fa-graduation-cap"></i> Học vấn & Chứng nhận</h2>
             
-            <div class="timeline-item">
-                <span class="time-tag">09/2024 - Hiện tại (Dự kiến tốt nghiệp 09/2026)</span>
-                <span class="title-bold">Lập trình Web</span>
-                <span class="sub-title">Cao đẳng FPT Polytechnic</span>
-                <ul>
-                    <li>Tình trạng: Sinh viên học kỳ 5/6.</li>
-                    <li>Điểm trung bình tích lũy (GPA): <b>3.59/4.0</b>.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item">
-                <span class="time-tag">Giải thưởng</span>
-                <span class="title-bold">Danh hiệu & Thành tích</span>
-                <span class="sub-title">FPT Polytechnic</span>
-                <ul>
-                    <li>Sinh viên xuất sắc học kỳ Spring 2025.</li>
-                    <li>Top dự án ấn tượng môn PHP nâng cao.</li>
-                </ul>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="time-tag">09/2024 - 09/2026 (Dự kiến)</span>
+                    <span class="title-bold">Lập trình Web</span>
+                    <span class="sub-title">Cao đẳng FPT Polytechnic</span>
+                    <ul>
+                        <li>Điểm trung bình tích lũy (GPA): <b>3.59/4.0</b></li>
+                        <li>Sinh viên xuất sắc học kỳ Spring 2025.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section style="text-align: center; background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
-            <h2>Kết nối với tôi</h2>
-            <div class="badge-group" style="justify-content: center; gap: 20px;">
-                <a href="https://zalo.me/0353424109" target="_blank"><img src="https://img.shields.io/badge/Zalo-0068FF?style=for-the-badge&logo=Zalo&logoColor=white"></a>
-                <a href="mailto:vule45044@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+        <section id="contact">
+            <h2><i class="fas fa-paper-plane"></i> Kết nối với tôi</h2>
+            <div class="contact-grid">
+                <a href="https://zalo.me/0353424109" target="_blank" class="contact-card">
+                    <i class="fab fa-comment-dots"></i>
+                    <span>Zalo</span>
+                    <p>0353 424 109</p>
+                </a>
+                <a href="mailto:vule45044@gmail.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                    <p>vule45044@gmail.com</p>
+                </a>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Địa chỉ</span>
+                    <p>Biên Hòa, Đồng Nai</p>
+                </div>
             </div>
         </section>
     </div>
 
     <footer>
-        © 2026 Lê Tuấn Vũ | Designed for Web Programming Portfolio
+        <p>© 2026 Lê Tuấn Vũ | Designed for Professional Portfolio</p>
     </footer>
 
 </body>
